@@ -9,6 +9,8 @@ cmake_minimum_required(VERSION 3.4.1)
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -s")
 
@@ -19,7 +21,7 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/AES/aes256.cpp
+                          src/main/cpp/AES/aes256.cpp
                           src/main/cpp/AES/aes.cpp
                           src/main/cpp/AES/aes256.cpp
                           src/main/cpp/AES/AESTool.cpp
