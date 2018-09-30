@@ -7,6 +7,7 @@
 #include "LuckinXxaaxxMain/BYUJhIpYsodLgizj.hpp"
 #include "android/log.h"
 
+#define JNIREG_CLASS "com/luck/lib/security/internal/NativeLib"
 #define LOG_TAG "System.out"
 #define LOGD(...)__android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 
@@ -69,9 +70,7 @@ static int registerNativeMethods(JNIEnv *env, const char *className, JNINativeMe
 }
 
 static int registerNatives(JNIEnv *env) {
-    //指定类的路径，通过FindClass 方法来找到对应的类
-    const char *className = "com/luck/lib/security/internal/NativeLib";
-    return registerNativeMethods(env, className, getMethods,
+    return registerNativeMethods(env, JNIREG_CLASS, getMethods,
                                  sizeof(getMethods) / sizeof(getMethods[0]));
 }
 //回调函数 在这里面注册函数
